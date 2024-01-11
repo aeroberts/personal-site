@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import "./App.scss";
+import "./App.css";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 function App() {
