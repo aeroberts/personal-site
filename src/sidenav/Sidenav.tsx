@@ -36,7 +36,7 @@ function Sidenav() {
             {path: '/resume', routeName: 'Resume'},
             {path: '/nothing-here', routeName: 'Nothing'}
           ].map(({path, routeName}) => (
-              <ListItem disablePadding>
+              <ListItem key={path} disablePadding>
                 <ListItemButton selected={location.pathname === path} component={Link} to={path}>
                   <ListItemText primary={routeName} />
                 </ListItemButton>

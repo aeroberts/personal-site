@@ -1,18 +1,13 @@
 import React from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
-import Divider from '@mui/material/Divider';
 
 import "./App.css";
 import Sidenav from './sidenav/Sidenav';
 import Box from "@mui/material/Box";
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Drawer from "@mui/material/Drawer";
 import AppBar from '@mui/material/AppBar';
+
+import Resume from './resume/Resume';
 
 import {Routes, Route, Outlet, Link, useLocation} from "react-router-dom";
 import {Typography} from "@mui/material";
@@ -39,7 +34,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="resume" element={<Dashboard />} />
+          <Route path="resume" element={<Resume />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
@@ -53,12 +48,9 @@ function App() {
 
 function Layout() {
   return (
-    <div>
+    <div className="main-content">
         <Toolbar />
-        <Box
-            component="main"
-            sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-        >
+        <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }} >
             <Outlet />
         </Box>
     </div>
@@ -81,14 +73,6 @@ function About() {
             About content goes here
         </Typography>
     </Box>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
   );
 }
 
