@@ -1,44 +1,34 @@
+import { Typography } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Toolbar from "@mui/material/Toolbar";
 import React from "react";
-import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import Sidenav from './sidenav/Sidenav';
-import Box from "@mui/material/Box";
-import AppBar from '@mui/material/AppBar';
-
-import Resume from './resume/Resume';
-
-import {Routes, Route, Outlet, Link, useLocation} from "react-router-dom";
-import {Typography} from "@mui/material";
+import About from "./about/About";
+import Resume from "./resume/Resume";
+import Sidenav from "./sidenav/Sidenav";
 
 const drawerWidth = 240;
 function App() {
-    const location = useLocation();
   return (
-    <Box className="main-box" sx={{display: 'flex', height: '100%'}}>
-        <CssBaseline />
-        <AppBar
-            position="fixed"
-            sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }} >
-            <Toolbar>
-                Alex Roberts
-            </Toolbar>
-        </AppBar>
+    <Box className="main-box" sx={{ display: "flex", height: "100%" }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+      >
+        <Toolbar>Alex Roberts</Toolbar>
+      </AppBar>
 
-        <Sidenav />
-      {/* Routes nest inside one another. Nested route paths build upon
-            parent route paths, and nested route elements render inside
-            parent route elements. See the note about <Outlet> below. */}
+      <Sidenav />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="resume" element={<Resume />} />
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
@@ -49,10 +39,13 @@ function App() {
 function Layout() {
   return (
     <div className="main-content">
-        <Toolbar />
-        <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }} >
-            <Outlet />
-        </Box>
+      <Toolbar />
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+      >
+        <Outlet />
+      </Box>
     </div>
   );
 }
@@ -61,17 +54,6 @@ function Home() {
   return (
     <Box>
       <h2>Home</h2>
-    </Box>
-  );
-}
-
-function About() {
-  return (
-    <Box>
-      <h2>About</h2>
-        <Typography>
-            About content goes here
-        </Typography>
     </Box>
   );
 }
