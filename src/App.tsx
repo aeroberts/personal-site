@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -8,6 +7,7 @@ import { Link, Outlet, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import About from "./about/About";
+import Home from "./home/Home";
 import Resume from "./resume/Resume";
 import Sidenav from "./sidenav/Sidenav";
 
@@ -47,14 +47,6 @@ function Layout() {
         <Outlet />
       </Box>
     </div>
-  );
-}
-
-function Home() {
-  return (
-    <Box>
-      <h2>Home</h2>
-    </Box>
   );
 }
 
