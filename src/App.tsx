@@ -10,6 +10,7 @@ import About from "./about/About";
 import Home from "./home/Home";
 import Resume from "./resume/Resume";
 import Sidenav from "./sidenav/Sidenav";
+import Strava from "./strava/Strava";
 
 const drawerWidth = 240;
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="resume" element={<Resume />} />
+          <Route path="strava" element={<Strava />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

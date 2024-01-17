@@ -19,6 +19,7 @@ const ROUTES: RouteInfo[] = [
   { path: "/", routeName: "Home" },
   { path: "/about", routeName: "About" },
   { path: "/resume", routeName: "Resume" },
+  { path: "/strava", routeName: "Strava" },
   { path: "/nothing-here", routeName: "Nothing" },
 ];
 
