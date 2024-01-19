@@ -1,7 +1,9 @@
+import Box from "@mui/material/Box";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
 import { Athlete } from "./Athlete";
+import AthleteDisplay from "./AthleteDisplay";
 import "./Strava.css";
 
 function Strava() {
@@ -53,8 +55,9 @@ function Strava() {
           <button onClick={resetToken}>Reset Token</button>
           <button onClick={fetchAthleteInfo}>Fetch Info</button>
           <div>
-            <p>{athleteInfo?.firstname}</p>
-            <p>{athleteInfo?.lastname}</p>
+            <Box>
+              {athleteInfo ? <AthleteDisplay athlete={athleteInfo} /> : <></>}
+            </Box>
           </div>
         </>
       )}
