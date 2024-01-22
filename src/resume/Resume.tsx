@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Resume.css";
 
 function Resume() {
@@ -8,6 +9,7 @@ function Resume() {
       type="application/pdf"
       width="100%"
       height="100%"
+      aria-label="Alex Roberts Resume"
     ></object>
   );
 }

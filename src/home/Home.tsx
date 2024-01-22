@@ -26,7 +26,7 @@ const LinkerLinks: LinkerTreeLink[] = [
 function Home() {
   return (
     <div className="home">
-      <img src="banff-pp.png" />
+      <img src="banff-pp.png" alt="" />
       <h1>Where to Find me:</h1>
       <ul>
         {LinkerLinks.map((linkerLink) => (

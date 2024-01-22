@@ -1,5 +1,4 @@
 import { CardMedia } from "@mui/material";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -17,7 +16,7 @@ function AthleteDisplay({ athlete }: { athlete: Athlete }) {
         component="img"
         alt="Profile Picture"
         height="140"
-        image={athlete.profile_medium}
+        image={athlete.profile}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

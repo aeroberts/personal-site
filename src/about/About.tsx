@@ -25,7 +25,7 @@ function About() {
           <strong>Ember.JS</strong> and <strong>Angular</strong>.
         </p>
         <div>
-          <img src="typescriptjavascript.jpeg" />
+          <img src="typescriptjavascript.jpeg" alt="" />
         </div>
       </div>
       <h2>Cyclist and Triathlete</h2>
