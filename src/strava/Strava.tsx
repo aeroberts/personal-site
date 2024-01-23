@@ -1,8 +1,9 @@
 import { FormControl, FormGroup } from "@mui/material";
 import Box from "@mui/material/Box";
-import React, { ChangeEventHandler, FormEventHandler } from "react";
+import React, { ChangeEventHandler, FormEventHandler, useContext } from "react";
 import { useState } from "react";
 
+import { StravaContext } from "../contexts/StravaContext";
 import { Athlete } from "./Athlete";
 import AthleteDisplay from "./AthleteDisplay";
 import "./Strava.css";
@@ -20,18 +21,8 @@ function Strava() {
     refresh: "",
   });
 
-  const [stravaToken, setStravaToken] = useState<StravaToken | null>(() => {
-    const stravaTokenJsonString = localStorage.getItem("stravaToken");
-
-    if (stravaTokenJsonString !== null && stravaTokenJsonString.length) {
-      const token = JSON.parse(stravaTokenJsonString) as StravaToken;
-      if (token.expiration && new Date(token.expiration) > new Date()) {
-        // If not expired return the token otherwise return empty obj
-        return token;
-      }
-    }
-    return { token: "", expiration: "", refresh: "" };
-  });
+  const { stravaToken, updateState: updateStravaState } =
+    useContext(StravaContext);
 
   const [athleteInfo, setAthleteInfo] = useState<Athlete | null>(null);
 
@@ -43,8 +34,9 @@ function Strava() {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     if (inputStravaToken) {
-      localStorage.setItem("stravaToken", JSON.stringify(inputStravaToken));
-      setStravaToken(inputStravaToken);
+      const stravaToken = JSON.stringify(inputStravaToken);
+      localStorage.setItem("stravaToken", stravaToken);
+      updateStravaState({ stravaToken: inputStravaToken });
     }
   };
 
@@ -61,7 +53,7 @@ function Strava() {
   };
 
   const resetToken = () => {
-    setStravaToken({ token: "", expiration: "", refresh: "" });
+    updateStravaState({ stravaToken: undefined });
     localStorage.removeItem("stravaToken");
   };
 
