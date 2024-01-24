@@ -4,6 +4,7 @@ import React, { ChangeEventHandler, FormEventHandler, useContext } from "react";
 import { useState } from "react";
 
 import { StravaContext } from "../contexts/StravaContext";
+import ActivityList from "./ActivityList";
 import { Athlete } from "./Athlete";
 import AthleteDisplay from "./AthleteDisplay";
 import "./Strava.css";
@@ -75,6 +76,7 @@ function Strava() {
           <div>
             <Box>
               {athleteInfo ? <AthleteDisplay athlete={athleteInfo} /> : <></>}
+              <ActivityList></ActivityList>
             </Box>
           </div>
         </div>
