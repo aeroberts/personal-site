@@ -24,7 +24,7 @@ function ActivityList() {
         });
     }
 
-    getActivityList();
+    //getActivityList();
 
     return () => {
       ignore = true;

@@ -8,6 +8,7 @@ import ActivityList from "./ActivityList";
 import { Athlete } from "./Athlete";
 import AthleteDisplay from "./AthleteDisplay";
 import "./Strava.css";
+import StravaAuth from "./StravaAuth";
 
 interface StravaToken {
   token: string;
@@ -61,12 +62,15 @@ function Strava() {
   return (
     <div className="strava">
       {!stravaToken || stravaToken?.token === "" ? (
+        <StravaAuth></StravaAuth>
+      ) : (
+        /*
         <TokenForm
           inputStravaToken={inputStravaToken}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
         />
-      ) : (
+        */
         <div>
           <p>Token: {stravaToken.token}</p>
           <p>Expiration: {stravaToken.expiration}</p>
@@ -76,7 +80,6 @@ function Strava() {
           <div>
             <Box>
               {athleteInfo ? <AthleteDisplay athlete={athleteInfo} /> : <></>}
-              <ActivityList></ActivityList>
             </Box>
           </div>
         </div>

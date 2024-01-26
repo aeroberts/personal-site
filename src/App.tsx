@@ -31,6 +31,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="resume" element={<Resume />} />
           <Route path="strava" element={<Strava />} />
+          <Route path="stravaauth" element={<Strava />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
